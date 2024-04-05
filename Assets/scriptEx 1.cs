@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class scriptEx1 : MonoBehaviour
-{
+{   // 전역변수 사용
+    // Data Type
     int health = 100;
     int level = 5;
+    float strength = 15.5f;
+    bool isFullLevel = true; // or false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,27 +16,27 @@ public class scriptEx1 : MonoBehaviour
         Debug.Log("hi");
 
         // b04 C# 기초
-        // Data Type
-        int i = 10;
+        
         float j = 1.0f;
         string k = "It is String";
         bool l = true; // or false;
 
         // Reference Type
-        string[] name = { "Kim", "Lee", "Park" };
-        Debug.Log(name[0]); // 0번 인덱스의 데이터 값 참조
-        Debug.Log(name[2]);
+        string[] monsters = { "슬라임", "사막뱀", "악마" };
+        int[] monsterLevel = new int[3]; // 길이가 4인 배열 선언
+        monsterLevel[0] = 1;
+        monsterLevel[1] = 5;
+        monsterLevel[2] = 20;
 
-        int[] level = new int[3]; // 길이가 4인 배열 선언
-        level[0] = 10;
-        level[1] = 20;
-        level[2] = 30;
-        level[3] = 40;
-        Debug.Log(level[0]); // 10
-        Debug.Log(level[1]); // 20
+        Debug.Log("몬스터 레벨:"+ monsterLevel[0]); // 0번 인덱스의 데이터 값 참조
+        Debug.Log("몬스터 이름:" + monsters[0]);
 
         List<string> items = new List<string>(); // 리스트 선언
-        items.Add("new String 1"); // 0번 인덱스
+        items.Add("생명 물약 30"); // 0번 인덱스
+        items.Add("마나 물약 30");
+
+        Debug.Log(items[0]);
+
         items.RemoveAt(0); // 0번 인덱스 값 삭제
 
         // 연산자 +, -, *, /, %
@@ -45,7 +48,7 @@ public class scriptEx1 : MonoBehaviour
 
         string playerName = "KIM";
         string title = "전설의";
-        Debug.Log(title + "" + playerName);
+        Debug.Log("풀네임:"+ title + "" + playerName);
 
         // 비교 연산자
         // == , !=, >=, <=, <, >
@@ -67,18 +70,19 @@ public class scriptEx1 : MonoBehaviour
             Debug.Log("it is false");
         }
 
-        switch (level[0])
+        switch (monsters[0])
         {
-            case 0:
+            case "슬라임":
                 Debug.Log("lvl 1");
                 break;
-            case 1:
+            case "사막뱀":
+
                 break;
-            case 2:
-                break;
-            case 3:
+            case "악마":
+
                 break;
             default: // 모두 해당 x 일 때 실행
+                
                 break;
         }
 
@@ -110,7 +114,7 @@ public class scriptEx1 : MonoBehaviour
         }
 
         // foreach - 파이썬의 for i in list 와 비슷
-        foreach (string names in name) // name 배열의 인덱스를 하나씩 names 변수로 가져옴
+        foreach (string names in monsters) // monsters 배열의 인덱스 값을 하나씩 names 변수로 가져옴
         {
 
         }
